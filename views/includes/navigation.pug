@@ -1,0 +1,136 @@
+doctype html
+head 
+  include test.pug
+body
+  nav.navbar.fixed-top.navbar-expand-sm.border-bottom.justify-content-center
+    .container-fluid
+      a.navbar-brand.d-flex.align-items-center.col-md-4.mb-2.mb-md-0.text-decoration-none(href='./index.html')
+        img(src='./img/LOGO.png', width='135px', height='60px', alt)
+      button.navbar-toggler.collapsed(type='button', data-target='#navbars', aria-controls='navbars', aria-expanded='false', aria-label='Toggle navigation')
+        span.navbar-toggler-icon
+          svg.bi.bi-justify(xmlns='http://www.w3.org/2000/svg', width='20', height='20', fill='currentColor', viewBox='0 0 16 16')
+            path(fill-rule='evenodd', d='M2 12.5a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5z')
+      .navbar-collapse#navbars
+        ul.navbar-nav.me-auto.text-black.text-decoration-none
+          li.nav-item.fs-3.mt-3
+            a.nav-link.px-2.link-dark.ms-5#homeNav(href='index') Home
+          li.nav-item.dropdown.fs-3.mt-3
+            a#workOutNav.nav-link.dropdown-toggle.border-0.px-1.link-dark.ms-5(type='button', aria-expanded='false') Workout
+            //12-30改，為了讀取值，寫出對應的姿勢
+            ul#workOutMenu.dropdown-menu(aria-labelledby='workOutNav')
+              li
+                a.dropdown-item(href='workout' onclick="getPose('Fullbody')") Fullbody
+              li
+                a.dropdown-item(href='workout' onclick="getPose('Shoulders')") Shoulders
+              li
+                a.dropdown-item(href='workout' onclick="getPose('Abs')") Abs
+              li
+                a.dropdown-item(href='workout' onclick="getPose('Arms')") Arms
+              li
+                a.dropdown-item(href='workout' onclick="getPose('Chest')") Chest
+              li
+                a.dropdown-item(href='workout' onclick="getPose('Back')") Back
+              li
+                a.dropdown-item(href='workout' onclick="getPose('Thigh')") Thigh
+              li
+                a.dropdown-item(href='workout' onclick="getPose('Butt')") Butt
+                //- href='workout' 
+          li.nav-item.fs-3.mt-3
+            a.nav-link.link-dark.ms-5#contactUsNav(href='contact') Contact Us
+          li.nav-item.fs-3.mt-3
+            a.nav-link.link-dark.ms-5#aboutUsNav(href='about') About Us
+          li.nav-item.dropdown.fs-3.mt-3
+            a#inforNav.nav-link.dropdown-toggle.border-0.px-1.link-dark.ms-5(type='button', aria-expanded='false') Information
+            ul#inforMenu.dropdown-menu(aria-labelledby='inforNav')
+              li
+                a.dropdown-item(href='infor',onclick="getInfor()") Edit
+              li
+                a#inforFolder.dropdown-item.btn(data-toggle='modal', data-bs-target='#smallPageModal_folder') File
+              li
+                a.dropdown-item.btn#logout(onclick='logout()') Log out
+             
+  //  -----------------------------Folder-------------------------------- 
+  .smallPage.modal.fade.d-grid#smallPageModal_folder(tabindex='-1', role='dialog', data-backdrop='static', data-keyboard='false', data-bs-keyboard='false', aria-hidden='true', style='z-index: -1;')
+    #allfolder.modal-dialog.modal-dialog-scrollable(style='max-height: 70%')
+      //  ---------------------------------所有文件夾------------------------------
+      .modal-content.folder#folder
+        .modal-header
+          .input-group-lg
+            h1 Your folder
+          .input-group-lg.mb-1s
+            button.btn.col-auto.me-auto#closeBtnfolder(type='button', data-dismiss='modal', aria-label='Close')
+              img(src='./img/close_r.png', width='30px', height='40px')
+        .modal-body
+          #all_fol
+          .modal-footer
+            .input-group-lg.mb-3.d-flex.flex-row.add_folder.position-relative
+              p Add folder
+              input#yourfolder(type='text', placeholder='  | folder name')
+              img#add_fol(src='img/add.png', alt)
+      //  ----------------------------------文件夾中的所有動作----------------------------- 
+      .modal-content.folder#folder1
+        .modal-header 
+          .input-group-lg#fol_title
+          .input-group-lg
+            button.btn.col-auto.me-auto#closeBtnfolder(type='button', data-dismiss='modal', aria-label='Close')
+              img(src='./img/close_r.png', width='30px', height='40px', alt)
+        .modal-body
+          #fol_move
+          .input-group-lg.mb-3.d-flex.flex-row.position-relative.fol-btn
+            .btn.btn-sm.back-btn(type='button', onclick="backBtn('1')")
+              p Back
+            .btn.btn-sm.d-flex.justify-content-between.addelse-btn(type='button', onclick="addBtn()")
+              p Add else
+              img(src='img/add.png', alt)
+      //  ----------------------------------增加動作----------------------------- 
+      #action1.modal-content.action
+        .modal-header
+          .input-group-lg.addfont
+            h1 Input something...
+          .input-group-lg.mb-1s
+            button.btn.col-auto.me-auto#closeBtnfolder(type='button', data-dismiss='modal', aria-label='Close')
+              img(src='./img/close_g1.png' width='30px' height='40px' alt='')
+        .modal-body
+          input#addinput.input-group-lg.mb-3.d-flex.flex-row.position-relative(type='text', placeholder='  | Input pose')
+          .input-group-lg.mb-3.d-flex.flex-row.position-relative.fol-btn
+            .btn.btn-sm.addback-btn(type='button' onclick="backBtn_act('1')")
+              p Back
+            .btn.btn-sm.d-flex.justify-content-between.add-btn(type='button' onclick="addPose()")
+              p Add
+  //================================================================================================================================================
+  .workOutModal.modal.fade.d-grid#workoutModalIDdiv(tabindex='-1', role='dialog', data-backdrop='static', data-keyboard='false', data-bs-keyboard='false', aria-hidden='true')
+      .workOutModal.modal.fade.d-grid#workoutModalID(tabindex='-1', role='dialog', data-keyboard='false', data-bs-keyboard='false', aria-hidden='true', style='z-index: -1;')
+          .modal-dialog
+            .workOutModal.modal-content
+              .logo.row.modal-header
+                a.col.me-auto#logoImg(href='indexG')
+                  img(src='./img/LOGO.png', width='150px', height='70px', alt)
+                button.btn.col-auto#closeBtnWorkoutImg(type='button', data-dismiss='modal', aria-label='Close')
+                  img#closeBtnImg(src='./img/close_g2.png', width='30px', height='40px', alt)
+                //  <---------------------------------signinDiv------------------------------
+              .modal-body
+                h1#how How to do it?
+                p#des
+              .workoutFooter.modal-footer
+                  button.btn.btn-lg#closeBtnWorkout( data-mdb-target='#workoutModalID', data-mdb-toggle='modal', data-mdb-dismiss='modal') Close
+  //================================================================================================================================================
+  .changePsModal.modal.fade.d-grid#changePsModalDiv(tabindex='-1', role='dialog', data-backdrop='static', data-keyboard='false', data-bs-keyboard='false', aria-hidden='true')
+      .changePsModal.modal.fade.d-grid#changePsModalID(tabindex='-1', role='dialog', data-keyboard='false', data-bs-keyboard='false', aria-hidden='true', style='z-index: -1;')
+          .modal-dialog
+            .PsModal.modal-content
+              .logo.row.modal-header
+                a.col.me-auto#logoImg(href='indexG')
+                  img(src='./img/LOGO.png', width='150px', height='70px', alt)
+                button.btn.col-auto#closeBtnPsImg(type='button', data-dismiss='modal', aria-label='Close')
+                  img#closeBtnImg(src='./img/close_g2.png', width='30px', height='40px', alt)
+                //  <---------------------------------signinDiv------------------------------
+              .modal-body
+                form(action = "" method = "POST")
+                  .input-group-lg.mb-3
+                    h3 Let change a new password!
+                  .input-group-lg.mb-3
+                    input.form-control#oldPw(type='password', placeholder='    | Old password')
+                  .input-group-lg.mb-3
+                    input.form-control#newPw(type='password', placeholder='    | New password')
+              .workoutFooter.modal-footer
+                  button.btn.btn-lg#saveBtnPs(onclick="saveNewPw()") Save you change

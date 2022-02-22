@@ -1,0 +1,82 @@
+html body {
+    background-color: #BACEC1;
+}
+
+nav.navbar,
+button#workOutNav,
+ul.dropdown-menu {
+    background-color: #f3f1de;
+}
+
+.navbar-nav>li>a {
+    margin-left: 27px;
+}
+
+.nav-link:hover,
+#workOutNav:hover {
+    text-decoration: none;
+    background-color: #1D3124;
+    color: white;
+}
+
+#find_div {
+    /* width: 80%; */
+    width: 50%;
+    margin: -20px 0px 10px auto;
+}
+
+#find {
+    width: 20%;
+    height: 35px;
+    background-color: #82A3A3;
+    color:#f3fff7;
+    border-radius: 5px;
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+#findtxt {
+    border-radius: 5px;
+    background-color: #f3fff7;
+    width: 60%;
+    height: 100%;
+    border-width: 0px;
+    border-bottom: 1px solid #82A3A3;
+    outline: none;
+    transition: 0.5s;
+}
+#find:hover{
+    background-color: #f3fff7;
+    color:#82A3A3;
+}
+#findtxt:hover{
+    background-color: #82A3A3;
+    color: #f3fff7;
+}
+
+
+/*---------------------------日曆的全選All跟下一步Next按鈕，cal_folder.css移過來的--------------------------*/
+
+
+/* .All {
+    background-color: #82A3A3;
+    color: #f3f1de;
+    position: relative;
+    left: -34%;
+    top: 6%;
+    width: 12%;
+    padding: 4px 0;
+} */
+
+
+/* .Next {
+    background-color: #82A3A3;
+    color: #f3f1de;
+    position: relative;
+    left: 34%;
+    width: 12%;
+    padding: 4px 0;
+} */
+
+
+/*---------------------------------------------按下Next的視窗--------------------------------------------*/

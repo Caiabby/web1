@@ -1,0 +1,319 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(http-equiv='X-UA-Compatible' content='IE=edge')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title PlainFit
+  link(rel='icon' href='/img/LOGO_icon.png' type='image/x-icon')
+  // JavaScript Bundle with Popper
+  script(src='https://code.jquery.com/jquery-3.1.1.min.js')
+  //- script(src='https://code.jquery.com/jquery-3.5.1.slim.min.js' integrity='sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj' crossorigin='anonymous')
+  script(src='https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js' integrity='sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p' crossorigin='anonymous')
+  script(src='https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js' integrity='sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx' crossorigin='anonymous')
+  script(src='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')
+  script(type='javascript' src='javascripts/login.js')
+  script(type='text/javascript' src='javascripts/jquery.waterwheelCarousel.js')
+
+  // 幻燈片
+  //- script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js')
+  //- script(src='http://cdn.bootcss.com/jquery/1.11.0/jquery.min.js' type='text/javascript')
+  // CSS only
+  link(href='https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css' rel='stylesheet' integrity='sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3' crossorigin='anonymous')
+  link(rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css')
+  link(rel='stylesheet' href='stylesheets/style.css')
+  link(rel='stylesheet' href='stylesheets/index.css')
+  link(rel='stylesheet' href='stylesheets/folder.css')
+  link(rel='stylesheet' href='stylesheets/cal_folder.css')
+
+
+include includes/navigation
+.page
+  div.container-fluit    
+    .card-body.text-GreenLake
+      ul.nav.nav-tabs.card-header-tabs.row.mx-0
+        li.nav-item.col-2
+        li.nav-item.col-1
+          a.nav-link
+            img(src='img/icon_see_times.png' width='20px')
+            p.see_times #{img1.click}
+        li.nav-item.col-1
+          a.nav-link.folder#indexFolder
+            img(src='img/icon_folder.png' width='25px')
+        li.nav-item.col-1
+          a.nav-link.calender
+            img(src='img/icon_calender.png' width='20px')
+        li.col-1
+          button.btn#show.mt-1(style='width: 45px;height: 42px;' onclick="showModalHome(this.id)" data-toggle='modal' data-bs-target='#workoutModalID')
+            i.bi.bi-collection
+              svg.bi.bi-collection(xmlns='http://www.w3.org/2000/svg' width='20' height='20' fill='currentColor' viewbox='0 0 16 16')
+                path(d='M2.5 3.5a.5.5 0 0 1 0-1h11a.5.5 0 0 1 0 1h-11zm2-2a.5.5 0 0 1 0-1h7a.5.5 0 0 1 0 1h-7zM0 13a1.5 1.5 0 0 0 1.5 1.5h13A1.5 1.5 0 0 0 16 13V6a1.5 1.5 0 0 0-1.5-1.5h-13A1.5 1.5 0 0 0 0 6v7zm1.5.5A.5.5 0 0 1 1 13V6a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-.5.5h-13z')
+        li.col-6
+          p#pose_name #{img1.name}
+        li.nav-item.col-3
+  #carousel
+    img#item-1
+    img#item-2
+    img#item-3
+  // -----------------首頁月曆表格---------------------//下面的
+  #calendar_home.table-responsive-xxl
+    table#home_calender_table
+      thead.color
+        tr
+          th.border-color(colspan='7')
+            #home_Date.text-align_center
+              i.glyphicon.glyphicon-menu-left.icon_btn(onclick='previousMonthH();')
+              h3#home_cal-month December ,2020
+              i.glyphicon.glyphicon-menu-right.icon_btn(onclick='nextMonthH();')
+        tr
+          th.weekday.border-color Sun
+          th.weekday.border-color Mon
+          th.weekday.border-color Tue
+          th.weekday.border-color Wed
+          th.weekday.border-color Thu
+          th.weekday.border-color Fri
+          th.weekday.border-color Sat
+      tbody#home_table-body.border-color
+        tr
+          td#cal1.HOME_cal(onclick='' data-homecalid='1')
+          td#cal2.HOME_cal(onclick='' data-homecalid='2') 1
+          td#cal3.HOME_cal(onclick='' data-homecalid='3') 1
+          td#cal4.HOME_cal(onclick='' data-homecalid='4') 1
+          td#cal5.HOME_cal(onclick='' data-homecalid='5') 1
+          td#cal6.HOME_cal(onclick='' data-homecalid='6') 1
+          td#cal7.HOME_cal(onclick='' data-homecalid='7') 1
+        tr
+          td#cal8.HOME_cal(onclick='' data-homecalid='8') 1
+          td#cal9.HOME_cal(onclick='' data-homecalid='9') 1
+          td#cal10.HOME_cal(onclick='' data-homecalid='10') 1
+          td#cal11.HOME_cal(onclick='' data-homecalid='11') 1
+          td#cal12.HOME_cal(onclick='' data-homecalid='12') 1
+          td#cal13.HOME_cal(onclick='' data-homecalid='13') 1
+          td#cal14.HOME_cal(onclick='' data-homecalid='14') 1
+        tr
+          td#cal15.HOME_cal(onclick='' data-homecalid='15') 1
+          td#cal16.HOME_cal(onclick='' data-homecalid='16') 1
+          td#cal17.HOME_cal(onclick='' data-homecalid='17') 1
+          td#cal18.HOME_cal(onclick='' data-homecalid='18') 1
+          td#cal19.HOME_cal(onclick='' data-homecalid='19') 1
+          td#cal20.HOME_cal(onclick='' data-homecalid='20') 1
+          td#cal21.HOME_cal(onclick='' data-homecalid='21') 1
+        tr
+          td#cal22.HOME_cal(onclick='' data-homecalid='22') 1
+          td#cal23.HOME_cal(onclick='' data-homecalid='23') 1
+          td#cal24.HOME_cal(onclick='' data-homecalid='24') 1
+          td#cal25.HOME_cal(onclick='' data-homecalid='25') 1
+          td#cal26.HOME_cal(onclick='' data-homecalid='26') 1
+          td#cal27.HOME_cal(onclick='' data-homecalid='27') 1
+          td#cal28.HOME_cal(onclick='' data-homecalid='28') 1
+        tr
+          td#cal29.HOME_cal(onclick='' data-homecalid='29') 1
+          td#cal30.HOME_cal(onclick='' data-homecalid='30') 1
+          td#cal31.HOME_cal(onclick='' data-homecalid='31') 1
+          td#cal32.HOME_cal(onclick='' data-homecalid='32') 1
+          td#cal33.HOME_cal(onclick='' data-homecalid='33') 1
+          td#cal34.HOME_cal(onclick='' data-homecalid='34') 1
+          td#cal35.HOME_cal(onclick='' data-homecalid='35') 1
+        tr
+          td#cal36.HOME_cal(onclick='' data-homecalid='36') 1
+          td#cal37.HOME_cal(onclick='' data-homecalid='37') 1
+          td#cal38.HOME_cal(onclick='' data-homecalid='38') 1
+          td#cal39.HOME_cal(onclick='' data-homecalid='39') 1
+          td#cal40.HOME_cal(onclick='' data-homecalid='40') 1
+          td#cal41.HOME_cal(onclick='' data-homecalid='41') 1
+          td#cal42.HOME_cal(onclick='' data-homecalid='42') 1
+      
+          //-點class，讀屬性
+    //
+      <button id="theme-portrait" type="button" name="button" class="font button color"
+      onclick="openFavColor();">Change Theme</button>
+  // -----------------加入資料夾---------------------
+  .smallPage.modal.fade.d-grid#smallPageModal_folder_index(tabindex='-1', role='dialog', data-backdrop='static', data-keyboard='false', data-bs-keyboard='false', aria-hidden='true', style='z-index: -1;')
+    #allfolder.modal-dialog.modal-dialog-scrollable(style='max-height: 70%')
+      //  ---------------------------------所有文件夾------------------------------
+      .modal-content.folder_i#folder_i
+        .modal-header
+          .input-group-lg
+            h1 Your folder
+          .input-group-lg.mb-1s
+            button.btn.col-auto.me-auto#closeBtnfolder_index(type='button', data-dismiss='modal', aria-label='Close')
+              img(src='./img/close_r.png', width='30px', height='40px')
+        .modal-body
+          #all_fol_i
+          .modal-footer
+            .input-group-lg.mb-3.d-flex.flex-row.add_folder.position-relative
+              p Add folder
+              input#yourfolder_i(type='text', placeholder='  | folder name')
+              img#add_fol_i(src='img/add.png', alt)
+  //-----------------月曆表格-----------------//上面的
+  #cal_win.table-responsive-sm
+    img#cal_close(src='img/close_g2.png')
+    table#calender_table
+      thead.color
+        tr
+          th.border-color(colspan='7')
+            // <h4 id="cal-year">December ,2020</h4>
+            #Date
+              i.glyphicon.glyphicon-menu-left.icon_btn(onclick='previousMonth();')
+              h3#cal-month December ,2020
+              i.glyphicon.glyphicon-menu-right.icon_btn(onclick='nextMonth();')
+        tr
+          th.weekday.border-color Sun
+          th.weekday.border-color Mon
+          th.weekday.border-color Tue
+          th.weekday.border-color Wed
+          th.weekday.border-color Thu
+          th.weekday.border-color Fri
+          th.weekday.border-color Sat
+      tbody#table-body.border-color
+        tr
+          td#calNO1.cal(onclick='')
+          td#calNO2.cal(onclick='')
+          td#calNO3.cal(onclick='')
+          td#calNO4.cal(onclick='')
+          td#calNO5.cal(onclick='')
+          td#calNO6.cal(onclick='')
+          td#calNO7.cal(onclick='')
+        tr
+          td#calNO8.cal(onclick='')
+          td#calNO9.cal(onclick='')
+          td#calNO10.cal(onclick='')
+          td#calNO11.cal(onclick='')
+          td#calNO12.cal(onclick='')
+          td#calNO13.cal(onclick='')
+          td#calNO14.cal(onclick='')
+        tr
+          td#calNO15.cal(onclick='')
+          td#calNO16.cal(onclick='')
+          td#calNO17.cal(onclick='')
+          td#calNO18.cal(onclick='')
+          td#calNO19.cal(onclick='')
+          td#calNO20.cal(onclick='')
+          td#calNO21.cal(onclick='')
+        tr
+          td#calNO22.cal(onclick='')
+          td#calNO23.cal(onclick='')
+          td#calNO24.cal(onclick='')
+          td#calNO25.cal(onclick='')
+          td#calNO26.cal(onclick='')
+          td#calNO27.cal(onclick='')
+          td#calNO28.cal(onclick='')
+        tr
+          td#calNO29.cal(onclick='')
+          td#calNO30.cal(onclick='')
+          td#calNO31.cal(onclick='')
+          td#calNO32.cal(onclick='')
+          td#calNO33.cal(onclick='')
+          td#calNO34.cal(onclick='')
+          td#calNO35.cal(onclick='')
+        tr
+          td#calNO36.cal(onclick='')
+          td#calNO37.cal(onclick='')
+          td#calNO38.cal(onclick='')
+          td#calNO39.cal(onclick='')
+          td#calNO40.cal(onclick='')
+          td#calNO41.cal(onclick='')
+          td#calNO42.cal(onclick='')
+    #check_btn
+      .btn#All(type='button' name='btnAll' onclick='Alldialog();') All
+      .btn#Next(type='button' name='btnNext' onclick='Nextdialog();') Next
+  //-----------------月曆表格新增記事-----------------
+  #modal_block
+    #modal_workout_name
+      p workout name
+    #modal_times
+      input#input_num(type='number' name='' min='1')
+      #times.HOME_times
+        p time
+    #modal_back
+      p back
+    #modal_OK_home
+      p OK
+
+  #HOME_div
+    img#HOME_div_close(src='img/close_g2.png')
+    //- #HOME_div_title Your plan
+    #HOME_div_block
+    #HOME_item_add add else +
+  #HOME_model
+    #HOME_model_title Input Somethig...
+    input#HOME_sth_input(type="text", placeholder="| input pose")
+    #HOME_sth_add add
+    #HOME_sth_back back
+    
+
+script(type='text/javascript' src='javascripts/jquery.waterwheelCarousel.js')
+script(type='text/javascript').
+  $(document).ready(function() {
+  let arr = [`#{img1.img}`, `#{img2.img}`,`#{img3.img}`];
+  document.getElementById("item-1").src = arr[0];
+  document.getElementById("item-1").name = `#{img1.name}`;
+  document.getElementById("item-1").class= `#{img1.id}`;
+  document.getElementById("item-2").src = arr[1];
+  document.getElementById("item-2").name = `#{img2.name}`;
+  document.getElementById("item-2").class = `#{img2.id}`;
+  document.getElementById("item-3").src = arr[2];
+  document.getElementById("item-3").name = `#{img3.name}`;
+  document.getElementById("item-3").class = `#{img3.id}`;
+  var carousel = $("#carousel").waterwheelCarousel({
+  flankingItems: 3,
+  movingToCenter: function($item) {
+  $('#callback-output').prepend('movingToCenter: ' + $item.attr('id') + '<br/>');
+  },
+  movedToCenter: function($item) {
+  $('#callback-output').prepend('movedToCenter: ' + $item.attr('id') + '<br/>');
+  },
+  movingFromCenter: function($item) {
+  $('#callback-output').prepend('movingFromCenter: ' + $item.attr('id') +
+  '<br/>');
+  },
+  movedFromCenter: function($item) {
+  $('#callback-output').prepend('movedFromCenter: ' + $item.attr('id') + '<br/>');
+  },
+  clickedCenter: function($item) {
+  $('#callback-output').prepend('clickedCenter: ' + $item.attr('id') + '<br/>');
+  }
+  });
+  $('#prev').bind('click', function() {
+  $('#posename').text("1");
+  carousel.prev();
+  return false
+  });
+  $('#next').bind('click', function() {
+  carousel.next();
+  return false;
+  });
+  // $('#reload').bind('click', function() {
+  //     newOptions = eval("(" + $('#newoptions').val() + ")");
+  //     carousel.reload(newOptions);
+  //     return false;
+  // });
+  jQuery(function($) {
+  var windowWidth = $(window).width();
+  var windowHeight = $(window).height();
+  $(window).resize(function() {
+  if (windowWidth != $(window).width() || windowHeight != $(window).height()) {
+  location.reload();
+  return;
+  }
+  });
+  });
+  });
+//- script(src='javascripts/workout.js')
+
+script(src='javascripts/javascript.js')
+script(src='javascripts/login.js')
+script(src='javascripts/calendar.js')
+script(src='javascripts/workout.js')
+script(src='javascripts/home.js')
+script(src='javascripts/folder.js')
+
+script.
+  let today = new Date(); //新增一個Date物件，命名為today
+  let thisYear = today.getFullYear();
+  let thisMonth = today.getMonth();
+  let thisDate = today.getDate();
+  let thisYearH = today.getFullYear();
+  let thisMonthH = today.getMonth();
+  let thisDateH = today.getDate();
+  updateDates();
+  fillInMonth(thisYear, thisMonth, thisDate);

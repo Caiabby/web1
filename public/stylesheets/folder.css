@@ -1,0 +1,250 @@
+div.folder {
+    background-color: #f3f1de;
+    /* width: 50%; */
+    /* padding: 5px; */
+    /* margin: 0 auto; */
+}
+
+#fol_name {
+    color: #e5945f;
+    /* text-align: left; */
+    position: relative;
+    font-weight: bold;
+    text-align: center;
+    font-size: x-large;
+    /* left: 30%; */
+}
+
+div.input-group-lg,
+div.input-group-lg>h1 {
+    color: #e5945f;
+    /* text-align: left; */
+    position: relative;
+    font-weight: bold;
+    text-align: center;
+    /* left: 30%; */
+}
+
+.alr-folder {
+    background-color: #ffffff;
+    width: 90%;
+    padding: 5px;
+    margin: 3% auto;
+    text-align: center;
+}
+
+div.alr-folder>p {
+    color: #e5945f;
+    font-size: 20px;
+    text-align: center;
+    padding-left: 20px;
+    margin: 0;
+    cursor: pointer;
+}
+
+.add_folder {
+    width: 90%;
+    padding: 5px;
+    margin: 3% auto;
+    background-color: #e5945f;
+}
+
+div.add_folder>p {
+    color: #ffffff;
+    font-size: 15px;
+    text-align: center;
+    padding: 10px;
+    margin: 0;
+}
+
+div.add_folder>input {
+    width: 60%;
+}
+
+div.add_folder>img {
+    position: absolute;
+    right: 5%;
+    top: 10px;
+    width: 30px;
+    cursor: pointer;
+}
+
+.fol-btn {
+    width: 90%;
+    padding: 5px;
+    margin: 3% auto;
+}
+
+div.back-btn {
+    background-color: #e5945f;
+    color: #ffffff;
+}
+
+div.back-btn>p {
+    margin: 5px;
+}
+
+div.addelse-btn {
+    background-color: #bbccc4;
+    color: #ffffff;
+    position: absolute;
+    right: 0;
+}
+
+div.addelse-btn>p {
+    margin: 5px;
+}
+
+div.addelse-btn>img {
+    margin: 5px;
+    width: 20px;
+}
+
+#closeBtnfolder {
+    position: relative;
+    right: -55px;
+}
+
+.alr-folder>img {
+    width: 45px;
+}
+
+.alr-folder>.close {
+    height: 15px;
+    width: 15px;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+div.action {
+    background-color: #f6f4e8;
+}
+
+div.addfont>h1 {
+    color: #bacec1;
+    position: relative;
+    font-weight: bold;
+    text-align: center;
+}
+
+#addinput {
+    height: 40px;
+    width: 90%;
+    margin: 0 auto;
+    border-radius: 5px;
+    background-color: #faf8f4;
+}
+
+div.addback-btn {
+    background-color: #bacec1;
+    color: #f6f4e8;
+}
+
+div.addback-btn>p {
+    margin: 5px;
+}
+
+div.add-btn {
+    background-color: #bacec1;
+    color: #f6f4e8;
+    position: absolute;
+    right: 0;
+}
+
+div.add-btn>p {
+    margin: 5px;
+}
+
+.modal-dialog-scrollable .modal-content {
+    max-height: 80%;
+    overflow: hidden;
+}
+/* ------------------------index--------------------------- */
+div.folder_i {
+    background-color: #f3f1de;
+}
+
+#closeBtnfolder_index {
+    position: relative;
+    right: -55px;
+}
+
+div.add_ptof{
+    background-color: #e5945f;
+    right: 0;
+    height: 100%;
+    width: initial;
+    margin-top: -5px;
+    cursor: pointer;
+}
+div.add_ptof>img{
+    width: 50%;
+    text-align: center;
+    margin-top: 7px;
+}
+
+.alr-folder_i {
+    background-color: #ffffff;
+    width: 90%;
+    padding: 5px;
+    margin: 3% auto;
+    text-align: center;
+}
+
+div.alr-folder_i>p {
+    color: #e5945f;
+    font-size: 20px;
+    text-align: center;
+    padding-left: 20px;
+    margin: 0;
+    cursor: pointer;
+}
+
+.alr-folder_i>img {
+    width: 45px;
+}
+/* ------------------------workout--------------------------- */
+div.folder_w {
+    background-color: #f3f1de;
+}
+
+#closeBtnfolder_workout {
+    position: relative;
+    right: -55px;
+}
+
+div.add_ptof{
+    background-color: #e5945f;
+    right: 0;
+    height: 100%;
+    width: initial;
+    margin-top: -5px;
+    cursor: pointer;
+}
+div.add_ptof>img{
+    width: 50%;
+    text-align: center;
+    margin-top: 7px;
+}
+
+.alr-folder_w {
+    background-color: #ffffff;
+    width: 90%;
+    padding: 5px;
+    margin: 3% auto;
+    text-align: center;
+}
+
+div.alr-folder_w>p {
+    color: #e5945f;
+    font-size: 20px;
+    text-align: center;
+    padding-left: 20px;
+    margin: 0;
+    cursor: pointer;
+}
+
+.alr-folder_w>img {
+    width: 45px;
+}
